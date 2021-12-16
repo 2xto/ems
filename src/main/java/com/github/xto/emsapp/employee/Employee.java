@@ -22,5 +22,6 @@ class Employee {
     private String lastname;
     private String email;
     private LocalDate birthdate;
+    private EmployeeSex sex;
 
 }
