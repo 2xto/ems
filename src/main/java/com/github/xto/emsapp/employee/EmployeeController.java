@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.List;
 
 @AllArgsConstructor
 
@@ -17,6 +18,11 @@ class EmployeeController {
     ResponseEntity<Employee> createEmployee(@RequestBody Employee toCreate) {
         Employee result = repository.save(toCreate);
         return ResponseEntity.created(URI.create("/" + result.getId())).body(result);
+    }
+
+    @GetMapping(params = {"!sort", "!page", "!size"})
+    ResponseEntity<List<Employee>> readAllEmployees(){
+        return ResponseEntity.ok(repository.findAll());
     }
 
     @GetMapping("/{id}")

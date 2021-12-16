@@ -16,7 +16,7 @@ import java.time.LocalDate;
 @Table(name = "employees")
 class Employee {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String lastname;
